@@ -1,0 +1,73 @@
+/*Colorscheme selectable via JS with smooth transition*/
+
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *:before,
+html.color-theme-in-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+html[data-theme="light"] {
+  --bg-color:      #fff;
+  --tx-color:      #222;
+  --strong-color:  #000;
+  --link-color: #1eaedb;
+  --border-color:  #eee;
+  --detail-color:  #222;
+}
+html[data-theme="dark"] {
+  --bg-color:     #2f2f2f;
+  --tx-color:        #eee;
+  --strong-color:    #fff;
+  --link-color:   #1eaedb;
+  --border-color: #4a4a4a;
+  --detail-color:    #eee;
+}
+:root {
+  --bg-color:      #fff;
+  --tx-color:      #222;
+  --strong-color:  #000;
+  --link-color: #1eaedb;
+  --border-color:  #eee;
+  --detail-color:  #222;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color:     #2f2f2f;
+    --tx-color:        #eee;
+    --strong-color:    #fff;
+    --link-color:   #1eaedb;
+    --border-color: #4a4a4a;
+    --detail-color:    #eee;
+  }
+}
+
+#theme-switch > svg {
+  fill: var(--tx-color);
+}
+
+#theme-switch {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1rem;
+  margin: 1em;
+}
+
+@media only screen {
+  #theme-switch {
+    display: inline-block;
+  }
+}
+
+/* Overwrite colors to vars if supported */
+body {
+  color: var(--tx-color);
+  background-color: var(--bg-color);
+}
+a {
+  color: var(--link-color);
+}
